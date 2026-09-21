@@ -1,0 +1,31 @@
+{"adapters":[
+  {"Name":"Wi-Fi","InterfaceIndex":12,"Description":"Intel(R) Wi-Fi 6 AX201 160MHz","Status":"Up","PhysicalMediaType":"Native 802.11","NdisPhysicalMedium":9},
+  {"Name":"WireGuard Tunnel","InterfaceIndex":30,"Description":"WireGuard Tunnel","Status":"Up","PhysicalMediaType":"Unspecified","NdisPhysicalMedium":0},
+  {"Name":"vEthernet (WSL)","InterfaceIndex":40,"Description":"Hyper-V Virtual Ethernet Adapter","Status":"Up","PhysicalMediaType":"Unspecified","NdisPhysicalMedium":0}],
+ "ipifs":[
+  {"Alias":"Wi-Fi","InterfaceIndex":12,"Family":"IPv4","Metric":35,"State":"Connected"},
+  {"Alias":"WireGuard Tunnel","InterfaceIndex":30,"Family":"IPv4","Metric":5,"State":"Connected"},
+  {"Alias":"vEthernet (WSL)","InterfaceIndex":40,"Family":"IPv4","Metric":5000,"State":"Connected"},
+  {"Alias":"Corp VPN","InterfaceIndex":50,"Family":"IPv4","Metric":1,"State":"Disconnected"},
+  {"Alias":"Loopback Pseudo-Interface 1","InterfaceIndex":1,"Family":"IPv4","Metric":75,"State":"Connected"}],
+ "addrs":[
+  {"InterfaceIndex":12,"Alias":"Wi-Fi","IP":"192.168.1.50","Prefix":24},
+  {"InterfaceIndex":12,"Alias":"Wi-Fi","IP":"fe80::1234%12","Prefix":64},
+  {"InterfaceIndex":30,"Alias":"WireGuard Tunnel","IP":"10.0.0.2","Prefix":32},
+  {"InterfaceIndex":40,"Alias":"vEthernet (WSL)","IP":"172.20.0.1","Prefix":20},
+  {"InterfaceIndex":1,"Alias":"Loopback Pseudo-Interface 1","IP":"127.0.0.1","Prefix":8}],
+ "routes":[
+  {"Dest":"0.0.0.0/0","NextHop":"192.168.1.1","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":0,"Protocol":"NetMgmt"},
+  {"Dest":"0.0.0.0/1","NextHop":"0.0.0.0","InterfaceIndex":30,"Alias":"WireGuard Tunnel","Metric":0,"Protocol":"NetMgmt"},
+  {"Dest":"128.0.0.0/1","NextHop":"0.0.0.0","InterfaceIndex":30,"Alias":"WireGuard Tunnel","Metric":0,"Protocol":"NetMgmt"},
+  {"Dest":"10.0.0.0/8","NextHop":"192.168.1.66","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":0,"Protocol":"NetMgmt"},
+  {"Dest":"203.0.113.10/32","NextHop":"192.168.1.1","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":0,"Protocol":"NetMgmt"},
+  {"Dest":"192.168.1.0/24","NextHop":"0.0.0.0","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":256,"Protocol":"Local"},
+  {"Dest":"192.168.1.50/32","NextHop":"0.0.0.0","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":256,"Protocol":"Local"},
+  {"Dest":"192.168.1.255/32","NextHop":"0.0.0.0","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":256,"Protocol":"Local"},
+  {"Dest":"172.20.0.0/20","NextHop":"0.0.0.0","InterfaceIndex":40,"Alias":"vEthernet (WSL)","Metric":256,"Protocol":"Local"},
+  {"Dest":"224.0.0.0/4","NextHop":"0.0.0.0","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":256,"Protocol":"Local"},
+  {"Dest":"255.255.255.255/32","NextHop":"0.0.0.0","InterfaceIndex":12,"Alias":"Wi-Fi","Metric":256,"Protocol":"Local"},
+  {"Dest":"127.0.0.0/8","NextHop":"0.0.0.0","InterfaceIndex":1,"Alias":"Loopback Pseudo-Interface 1","Metric":256,"Protocol":"Local"}],
+ "vpn":"Corp VPN",
+ "dhcp":[{"InterfaceIndex":12,"DHCPEnabled":true,"DHCPServer":"192.168.1.66","Options":null}]}

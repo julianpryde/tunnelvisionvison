@@ -1,0 +1,5 @@
+[{"ifindex":1,"ifname":"lo","flags":["LOOPBACK","UP","LOWER_UP"],"operstate":"UNKNOWN","link_type":"loopback","addr_info":[{"family":"inet","local":"127.0.0.1","prefixlen":8}]},
+ {"ifindex":2,"ifname":"eth0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"operstate":"UP","link_type":"ether","addr_info":[{"family":"inet","local":"192.168.1.50","prefixlen":24},{"family":"inet6","local":"fe80::1","prefixlen":64}]},
+ {"ifindex":3,"ifname":"docker0","flags":["BROADCAST","MULTICAST","UP"],"operstate":"DOWN","link_type":"ether","linkinfo":{"info_kind":"bridge"},"addr_info":[{"family":"inet","local":"172.17.0.1","prefixlen":16}]},
+ {"ifindex":4,"ifname":"wg0","flags":["POINTOPOINT","NOARP","UP","LOWER_UP"],"operstate":"UNKNOWN","link_type":"none","linkinfo":{"info_kind":"wireguard"},"addr_info":[{"family":"inet","local":"10.0.0.2","prefixlen":32}]},
+ {"ifindex":5,"ifname":"tun0","flags":["POINTOPOINT","MULTICAST","NOARP","UP"],"operstate":"DOWN","link_type":"none","linkinfo":{"info_kind":"tun"},"addr_info":[]}]

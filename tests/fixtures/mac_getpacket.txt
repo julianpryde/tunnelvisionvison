@@ -1,0 +1,14 @@
+op = BOOTREPLY
+htype = 1
+yiaddr = 192.168.1.254
+siaddr = 192.168.1.66
+options:
+Options count is 8
+dhcp_message_type (uint8): ACK 0x5
+server_identifier (ip): 192.168.1.66
+lease_time (uint32): 0x3c
+subnet_mask (ip): 255.255.255.0
+router (ip_mult): {192.168.1.1}
+domain_name_server (ip_mult): {192.168.1.1}
+classless_static_route (classless_route): {0.0.0.0/1, 192.168.1.66; 128.0.0.0/1, 192.168.1.66}
+end (none):

@@ -1,0 +1,8 @@
+[{"type":"unicast","dst":"default","dev":"wg0","table":"51820","flags":[]},
+ {"dst":"default","gateway":"192.168.1.1","dev":"eth0","protocol":"dhcp","prefsrc":"192.168.1.50","metric":100,"flags":[]},
+ {"dst":"0.0.0.0/1","gateway":"192.168.1.66","dev":"eth0","protocol":"dhcp","metric":100,"flags":[]},
+ {"dst":"128.0.0.0/1","gateway":"192.168.1.66","dev":"eth0","protocol":"dhcp","metric":100,"flags":[]},
+ {"dst":"172.17.0.0/16","dev":"docker0","protocol":"kernel","scope":"link","prefsrc":"172.17.0.1","flags":["linkdown"]},
+ {"dst":"192.168.1.0/24","dev":"eth0","protocol":"kernel","scope":"link","prefsrc":"192.168.1.50","metric":100,"flags":[]},
+ {"type":"local","dst":"192.168.1.50","table":"local","dev":"eth0","protocol":"kernel","scope":"host","prefsrc":"192.168.1.50","flags":[]},
+ {"type":"broadcast","dst":"192.168.1.255","table":"local","dev":"eth0","protocol":"kernel","scope":"link","prefsrc":"192.168.1.50","flags":[]}]

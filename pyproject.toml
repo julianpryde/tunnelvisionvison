@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tunnelvisionvision"
+version = "0.1.0"
+description = "Detect and respond to TunnelVision (CVE-2024-3661) DHCP option 121 VPN-decloaking attacks on Linux, macOS and Windows"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+sniff = ["scapy>=2.5"]  # passive DHCP sniffing on macOS/Windows (Linux needs nothing extra)
+
+[project.scripts]
+tvv = "tunnelvisionvision.cli:main"
+
+[tool.setuptools]
+packages = ["tunnelvisionvision", "tunnelvisionvision.platforms"]

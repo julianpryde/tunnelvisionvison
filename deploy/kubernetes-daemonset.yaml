@@ -1,0 +1,58 @@
+# Watches every node's host network namespace for TunnelVision.
+# Alerts go to the pod log (kubectl logs) and, if configured, alert_command (e.g. curl to a webhook/SIEM).
+# Respond on a node with:  kubectl -n tunnelvisionvision exec <pod> -- tvv action mitigate
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tunnelvisionvision
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tvv-config
+  namespace: tunnelvisionvision
+data:
+  config.json: |
+    {
+      "poll_interval": 5,
+      "notify_min_severity": "HIGH",
+      "auto_action": "none",
+      "sniff": true,
+      "alert_command": ""
+    }
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: tunnelvisionvision
+  namespace: tunnelvisionvision
+spec:
+  selector:
+    matchLabels: {app: tunnelvisionvision}
+  template:
+    metadata:
+      labels: {app: tunnelvisionvision}
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      tolerations: [{operator: Exists}]
+      containers:
+        - name: tvv
+          image: tunnelvisionvision:0.1.0
+          args: ["daemon"]
+          env: [{name: TVV_CONFIG, value: /etc/tunnelvisionvision/config.json}]
+          securityContext:
+            capabilities: {add: ["NET_ADMIN", "NET_RAW"], drop: ["ALL"]}
+          resources:
+            requests: {cpu: 10m, memory: 32Mi}
+            limits: {memory: 128Mi}
+          volumeMounts:
+            - {name: config, mountPath: /etc/tunnelvisionvision}
+            - {name: nm, mountPath: /var/lib/NetworkManager, readOnly: true}
+            - {name: dhclient, mountPath: /var/lib/dhcp, readOnly: true}
+            - {name: networkd, mountPath: /run/systemd/netif, readOnly: true}
+      volumes:
+        - {name: config, configMap: {name: tvv-config}}
+        - {name: nm, hostPath: {path: /var/lib/NetworkManager, type: DirectoryOrCreate}}
+        - {name: dhclient, hostPath: {path: /var/lib/dhcp, type: DirectoryOrCreate}}
+        - {name: networkd, hostPath: {path: /run/systemd/netif, type: DirectoryOrCreate}}

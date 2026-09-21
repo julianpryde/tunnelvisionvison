@@ -1,0 +1,12 @@
+lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+	inet 127.0.0.1 netmask 0xff000000
+	inet6 ::1 prefixlen 128
+en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	ether fc:b2:14:54:8e:6a
+	inet6 fe80::1c2b:3a4d:5e6f:7081%en0 prefixlen 64 secured scopeid 0xc
+	inet 192.168.1.254 netmask 0xffffff00 broadcast 192.168.1.255
+	status: active
+utun0: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1380
+	inet6 fe80::d1a0:1234:5678:9abc%utun0 prefixlen 64 scopeid 0x13
+utun4: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1420
+	inet 10.8.0.2 --> 10.8.0.2 netmask 0xffffffff
